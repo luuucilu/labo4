@@ -82,7 +82,7 @@
 					</td>
 					<td class="borders">
 						<a href="listaPedidos.php?borrar=<?=$p['id_pedido']-1?>">
-							<img src="/libreria/html/imagenes/tacho.png" width="22" height="22">
+							<img src="../html/imagenes/tacho.png" width="22" height="22">
 						</a>
 					</td>
 			</tr>
