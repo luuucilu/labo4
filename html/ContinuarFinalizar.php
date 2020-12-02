@@ -65,9 +65,9 @@
 		  </tbody>
 		</table>
 		
-	<div class="text-center">
-	<a href="ContinuarAgregando.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ">Continuar Agregando</a>
-	<a href="IngresarPedido.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ">Pasar a finalizar la compra</a>
+	<div class="buttons-wrapper">
+		<a href="ContinuarAgregando.php" class="volver">Continuar Agregando</a>
+		<a href="IngresarPedido.php" class="agregar">Pasar a finalizar la compra</a>
 	</div>
 
 	
