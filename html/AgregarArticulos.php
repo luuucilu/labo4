@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Agregar Articulos</title>
-	<link rel="stylesheet" href="../html/styles/reset.css">
-	<link rel="stylesheet" href="../html/styles/altaArticulo.css">
+	<link rel="stylesheet" href="html/styles/reset.css">
+	<link rel="stylesheet" href="html/styles/altaArticulo.css">
 
 
 </head>
@@ -12,14 +12,13 @@
 	<header class="header-section">
 			<div class="header-navbar">
 				<div class="header-title">
-					<a class="title" href="PaginaPrincipalEncargado.php">Librería Sarasa</a>
-					<!-- <h1>Librería Sarasa</h1> -->
-					<img src="../html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
+					<a class="title" href="PaginaPrincipalEncargado">Librería Sarasa</a>
+					<img src="html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
 				</div>
 
 				<div class="header-options">
-					<a class="nav-link" href="sucursales.php">Sucursales</a>
-					<a class="nav-link" href="iniciosesion.php">Ingreso para encargados</a>
+					<a class="nav-link" href="Sucursales">Sucursales</a>
+					<a class="nav-link" href="InicioSesion">Ingreso para encargados</a>
 				</div>
 			</div>
 	</header>
@@ -34,7 +33,7 @@
 					<h5 class="card-title"><?= $a['nombre']." $". $a['precio']?></h5>
 				<?php }
 				} ?>
-				<form method="GET">
+				<form method="POST">
 				<label>Cantidad: </label>
 					<select name="cantidad">
 						<option value="1">1</option>
@@ -42,15 +41,13 @@
 						<option value="3">3</option>
 						<option value="4">4</option>
 						<option value="5">5</option>
-						<option value="6">6</option>
 					</select>
 
 					<div class="buttons-wrapper">
 						<div class="volver">
-						<a href="categorias.php?categorias=<?=$_GET['categorias']?>">Volver</a>
-							
+							<a href="Categorias-<?=$_GET['categorias']?>">Volver</a>	
 						</div>
-						<input type=submit class="volver"  value="Agregar">
+						<input type=submit class="volver" value="Agregar">
 					</div>
 
 					<input type="hidden" name="id_articulo" value="<?= $_GET['id'] ?>">

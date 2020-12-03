@@ -1,13 +1,9 @@
-
-
-<!-- /html/ContinuarFinalizar.php  -->
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Mostrar Articulos</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="../html/styles/listastock.css">
+	<link rel="stylesheet" type="text/css" href="html/css/bootstrap.min.css">
+	<link rel="stylesheet" href="html/styles/listastock.css">
 
 	<style type="text/css">
 		body {
@@ -21,12 +17,12 @@
         <div class="header-navbar">
             <div class="header-title">
                 <h1>Librería Sarasa</h1>
-                <img src="../html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
+                <img src="html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
             </div>
 
             <div class="header-options">
-                <a class="nav-link" href="sucursales.php">Sucursales</a>
-                <a class="nav-link" href="iniciosesion.php">Ingreso para encargados</a>
+                <a class="nav-link" href="Sucursales">Sucursales</a>
+                <a class="nav-link" href="InicioSesion">Ingreso para encargados</a>
             </div>
         </div>
   </header> 
@@ -51,9 +47,9 @@
 			<td><?= $art['cantidad'] ?></td>
 			<td>$<?= $art['precio']*$art['cantidad'] ?></td>
 			<td><?php if($this->cantidad <= 1){ ?>
-				<a href="PedidoEliminado.php?borrar=<?=$art['id_articulo']?>&ultimo=<?=$this->ultimo?>">Quitar</a>
+				<a href="PedidoEliminado-<?=$art['id_articulo']?>-<?=$this->ultimo?>">Quitar</a>
 				<?php }else{ ?>
-				<a href="conFin.php?borrar=<?=$art['id_articulo']?>&ultimo=<?=$this->ultimo?>">Quitar</a>
+				<a href="ConFin-<?=$art['id_articulo']?>-<?=$this->ultimo?>">Quitar</a>
 				<?php } ?>
  			</td>
 			<?php $total = $total + ($art['precio']*$art['cantidad'])	?>
@@ -66,13 +62,13 @@
 		</table>
 		
 	<div class="buttons-wrapper">
-		<a href="ContinuarAgregando.php" class="volver">Continuar Agregando</a>
-		<a href="IngresarPedido.php" class="agregar">Pasar a finalizar la compra</a>
+		<a href="ContinuarAgregando" class="volver">Continuar Agregando</a>
+		<a href="IngresarPedido" class="agregar">Pasar a finalizar la compra</a>
 	</div>
 
 	
-	<script src="js/jquery-3.3.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="html/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="html/js/popper.min.js"></script>
+	<script src="html/js/bootstrap.min.js"></script>
 </body>
 </html>

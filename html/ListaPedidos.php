@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Pagina Principal Encargado</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../html/styles/listaPedidos.css">
+	<link rel="stylesheet" type="text/css" href="html/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="html/styles/listaPedidos.css">
 	<style type="text/css">
 	body {
 		margin: 50px;
@@ -31,13 +31,13 @@
 	<header class="header-section">
 		<div class="header-navbar">
 			<div class="header-title">
-				<a class="title" href="PaginaPrincipalEncargado.php">Librería Sarasa</a>
-				<img src="../html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
+				<a class="title" href="PaginaPrincipalEncargado">Librería Sarasa</a>
+				<img src="html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
 			</div>
 
 			<div class="header-options">
-					<a class="nav-link" href="listastock.php">Productos</a>
-					<a class="nav-link" href="Logout.php">Cerrar Sesión</a>
+					<a class="nav-link" href="ListaStock">Productos</a>
+					<a class="nav-link" href="Logout">Cerrar Sesión</a>
 			</div>
 		</div>
 	</header>
@@ -81,8 +81,8 @@
 						<?php } ?>
 					</td>
 					<td class="borders">
-						<a href="listaPedidos.php?borrar=<?=$p['id_pedido']-1?>">
-							<img src="../html/imagenes/tacho.png" width="22" height="22">
+						<a href="BorrarPedido-<?=$p['id_pedido']-1?>">
+							<img src="html/imagenes/tacho.png" width="22" height="22">
 						</a>
 					</td>
 			</tr>
@@ -128,7 +128,7 @@
 						<?php } ?>
 					</td>
 					<td class="borders">
-						<a href="listaPedidos.php?borrar=<?=$p['id_pedido']?>"><img src="../html/imagenes/tacho.png" width="22" height="22">
+						<a href="BorrarPedido-<?=$p['id_pedido']?>"><img src="html/imagenes/tacho.png" width="22" height="22">
 						</a>
 					</td>
 				</tr>
@@ -137,8 +137,8 @@
 
 
 			<div class="buttons-wrapper">
-				<a href="PaginaPrincipalEncargado.php" class="volver">Volver</a>
-				<input type=submit class="volver"  value="Despachar Pedidos">
+				<a href="PaginaPrincipalEncargado" class="volver">Volver</a>
+				<input type=submit class="volver" value="Despachar Pedidos">
 		
 			</div>
 
@@ -146,9 +146,9 @@
 
 
 	</form>
-		<script src="js/jquery-3.3.1.slim.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="html/js/jquery-3.3.1.slim.min.js"></script>
+		<script src="html/js/popper.min.js"></script>
+		<script src="html/js/bootstrap.min.js"></script>
 
 	</body>
 	</html>

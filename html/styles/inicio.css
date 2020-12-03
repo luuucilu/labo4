@@ -63,11 +63,16 @@ body a {
   border: #888888 4px solid;
   width: 500px;
   height: 300px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-size: 1.5rem;
+}
+.login h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 .login .buttons-wrapper {
   display: flex;

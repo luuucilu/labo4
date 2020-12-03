@@ -1,25 +1,23 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Baja de Articulo</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="../html/styles/altaArticulo.css">
+	<link rel="stylesheet" type="text/css" href="html/css/bootstrap.min.css">
+	<link rel="stylesheet" href="html/styles/altaArticulo.css">
 </head>
 <body>
 
 	<header class="header-section">
 			<div class="header-navbar">
 				<div class="header-title">
-					<a class="title" href="PaginaPrincipalEncargado.php">Librería Sarasa</a>
-					<!-- <h1>Librería Sarasa</h1> -->
-					<img src="../html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
+					<a class="title" href="PaginaPrincipalEncargado">Librería Sarasa</a>
+					<img src="html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
 				</div>
 
 				<div class="header-options">
-					<a class="nav-link" href="listastock.php">Productos</a>
-					<a class="nav-link" href="listapedidos.php">Despachar Pedidos</a>
-					<a class="nav-link" href="Logout.php">Cerrar Sesión</a>
+					<a class="nav-link" href="ListaStock">Productos</a>
+					<a class="nav-link" href="ListaPedidos">Despachar Pedidos</a>
+					<a class="nav-link" href="Logout">Cerrar Sesión</a>
 				</div>
 			</div>
 	</header>
@@ -31,7 +29,7 @@
 
 	<div class="buttons-wrapper">
 		<div class="volver">
-			<a href="listastock.php">Volver</a>
+			<a href="ListaStock">Volver</a>
 		</div>
         <input type=submit class="volver" name="Borrar" value="Borrar">
 	</div>

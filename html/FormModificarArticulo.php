@@ -2,22 +2,22 @@
 <html>
 <head>
 	<title>Modificacion de Articulos</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../html/styles/listaPedidos.css">
+	<link rel="stylesheet" type="text/css" href="html/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="html/styles/listaPedidos.css">
 </head>
 <body>
 
 	<header class="header-section">
 		<div class="header-navbar">
 			<div class="header-title">
-				<a class="title" href="PaginaPrincipalEncargado.php">Librería Sarasa</a>
-				<img src="../html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
+				<a class="title" href="PaginaPrincipalEncargado">Librería Sarasa</a>
+				<img src="html/Imagenes/art-libreria.png" class="img-title" alt="img-title" >
 			</div>
 
 			<div class="header-options">
-					<a class="nav-link" href="listastock.php">Productos</a>
-					<a class="nav-link" href="listapedidos.php">Despachar Pedidos</a>
-					<a class="nav-link" href="Logout.php">Cerrar Sesión</a>
+					<a class="nav-link" href="ListaStock">Productos</a>
+					<a class="nav-link" href="ListaPedidos">Despachar Pedidos</a>
+					<a class="nav-link" href="Logout">Cerrar Sesión</a>
 			</div>
 		</div>
 	</header>
@@ -47,8 +47,8 @@
 	
 
 	<div class="buttons-wrapper">
-		<a href="PaginaPrincipalEncargado.php" class="volver">Volver</a>
-		<input type=submit class="volver"  value="Continuar">
+		<a href="ListaStock" class="volver">Volver</a>
+		<input type=submit class="volver" value="Continuar">
 	</div>
 
 		</form>
