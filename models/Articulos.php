@@ -1,5 +1,4 @@
 <?php
-
 class Articulos extends Model {
 
 
@@ -14,80 +13,78 @@ class Articulos extends Model {
 	//POST
 	public function alta($nombre, $tipo, $precio, $detalle, $stock){
 
-		if(!is_numeric($tipo)) die("Verifique que haya ingresado correctamente el tipo");
-		if($tipo<0) die("Verifique que haya ingresado correctamente el tipo");
+		if(!ctype_digit($tipo)) throw new ValidacionException("Verifique que haya ingresado correctamente el tipo");
 
-		if(strlen($nombre)<2) die("Verifique que haya ingresado correctamente el nombre");
+		if(strlen($nombre)<2) throw new ValidacionException("Verifique que haya ingresado correctamente el nombre");
 		$nombre=substr($nombre, 0, 50);
 		$nombre=$this->db->escapeString($nombre);
 
-		if(!is_numeric($precio)) die("Verifique que haya ingresado correctamente el precio");
-		if($precio<0) die("Verifique que haya ingresado correctamente el precio");
+		if(!is_numeric($precio)) throw new ValidacionException("Verifique que haya ingresado correctamente el precio");
+		if($precio<0) throw new ValidacionException("Verifique que haya ingresado correctamente el precio");
 
-		if(strlen($detalle)<2) die("Verifique que haya ingresado correctamente el detalle");
+		if(strlen($detalle)<2) throw new ValidacionException("Verifique que haya ingresado correctamente el detalle");
 		$detalle=substr($detalle, 0, 50);
 		$detalle=$this->db->escapeString($detalle);
 
 
-		if(!is_numeric($stock)) die("Verifique que haya ingresado correctamente el stock");
-		if($stock<0) die("Verifique que haya ingresado correctamente el stock");
+		if(!ctype_digit($stock)) throw new ValidacionException("Verifique que haya ingresado correctamente el stock");
 
 
 
 		$this->db->query("INSERT into articulos
 						(tipo, nombre, precio, detalle, stock)
 						values 
-						('$tipo', '$nombre', '$precio', '$detalle' , '$stock')");
+						($tipo, '$nombre', $precio, '$detalle' , $stock)");
 	}
 
 
 	//PUT
 	public function modificar($id, $nombre, $precio, $detalle, $stock){
-		if(!ctype_digit($id)) die("id no es un digito");
+		if(!ctype_digit($id)) throw new ValidacionException("id no es un digito");
 
-		if(strlen($nombre)<2) die("Nombre no puede estar vacio");
+		if(strlen($nombre)<2) throw new ValidacionException("Nombre no puede estar vacio");
 		$nombre=substr($nombre, 0, 20);
 		$nombre=$this->db->escapeString($nombre);
 
-		if(!is_numeric($precio)) die("Precio no es un numero");
-		if($precio<0) die("Precio no puede estar vacio");
+		if(!is_numeric($precio)) throw new ValidacionException("Precio no es un número");
+		if($precio<0) throw new ValidacionException("Precio no puede ser negativo");
 
-		if(strlen($detalle)<2) die("Detalle no puede estar vacio");
+		if(strlen($detalle)<2) throw new ValidacionException("Detalle no puede estar vacio");
 		$detalle=substr($detalle, 0, 20);
 		$detalle=$this->db->escapeString($detalle);
 
-		if(!is_numeric($stock)) die("Stock no es un numero");
+		if(!ctype_digit($stock)) throw new ValidacionException("Stock no es un digito");
 
 		
 		$this->db->query("UPDATE articulos
-						SET nombre='$nombre', precio='$precio', detalle='$detalle', stock='$stock'
+						SET nombre='$nombre', precio=$precio, detalle='$detalle', stock=$stock
 						WHERE id_articulo=$id");
 }
 
 	//PUT
 	public function modificarStock($id, $stock){
-		if(!ctype_digit($id)) die("id no es un digito");
+		if(!ctype_digit($id)) throw new ValidacionException("id no es un digito");
 
-		if(!is_numeric($stock)) die("Stock no es un numero");
-		if($stock<0) die("Stock no puede estar vacio");
+		if(!ctype_digit($stock)) throw new ValidacionException("Stock no es un digito");
 	
-		$this->db->query("SELECT stock from articulos WHERE id_articulo = '$id'");
+		$this->db->query("SELECT stock from articulos WHERE id_articulo = $id");
 		$aux = $this->db->fetch();
 		$stockTotal = $aux['stock'];
 
 		$stockFinal =  $stockTotal - $stock;
 
-		if($stockFinal < 0 )die("No hay stock de producto");
+		if($stockFinal < 0 ) throw new ValidacionException("No hay stock de producto");
 
 		$this->db->query("UPDATE articulos
-						SET stock='$stockFinal'
+						SET stock=$stockFinal
 						WHERE id_articulo=$id");
 }
 
 
 	//DELETE
 	public function borrar($id){
-		if(!ctype_digit($id)) die("error1");
+		if(!ctype_digit($id)) throw new ValidacionException("Id no es un digito");
+
 			
 
 		$this->db->query("DELETE
@@ -102,14 +99,14 @@ class Articulos extends Model {
 	//GET By ID
 	public function busquedaEspecifica($id){
 			
-		if(!ctype_digit($id)) die("id no es un digito");
+		if(!ctype_digit($id)) throw new ValidacionException("Id no es un digito");
 
 		$this->db->query("SELECT *
 		FROM articulos
 		WHERE id_articulo=$id
 		");
 
-		if($this->db->numRows()!=1) die("error numrows");
+		if($this->db->numRows()!=1) throw new ValidacionException("Error numrows");
 		return $this->db->fetch();
 		}
 }

@@ -1,4 +1,5 @@
 <?php
+
 class Pedidos extends Model {
 	
 
@@ -11,9 +12,9 @@ class Pedidos extends Model {
 	//POST
 	public function alta($id_pedido,$fecha, $direccion ){
 
-		if(!ctype_digit($id_pedido)) die("Pedido no es un digito");
+		if(!ctype_digit($id_pedido)) throw new ValidacionException("Pedido no es un digito");
 
-		if(strlen($direccion)<2) die("Direccion no puede estar vacio");
+		if(strlen($direccion)<2) throw new ValidacionException("Direccion no puede estar vacia");
 		$direccion=substr($direccion, 0, 30);
 		$direccion=$this->db->escapeString($direccion);
 
@@ -22,17 +23,17 @@ class Pedidos extends Model {
 		$this->db->query("INSERT into pedidos
 						(id_pedido,fecha, direccion)
 						values 
-						('$id_pedido', '$fecha', '$direccion')");
+						($id_pedido, '$fecha', '$direccion')");
 	}
 
 	//PUT
 	public function despacharPedido($idDespachado){
 
-		if(!ctype_digit($idDespachado)) die("ID Despachado no es un digito");
+		if(!ctype_digit($idDespachado)) throw new ValidacionException("ID Despachado no es un digito");
 			
 		$this->db->query("UPDATE pedidos
 						SET despachado=1 
-						WHERE id_pedido = '$idDespachado'");
+						WHERE id_pedido = $idDespachado");
 	}
 	
 
@@ -55,5 +56,3 @@ class Pedidos extends Model {
 		return $this->db->numRows();
 	}
 }
-	
-	

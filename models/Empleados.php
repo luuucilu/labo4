@@ -1,5 +1,4 @@
 <?php
-
 class Empleados extends Model {
 
 
@@ -13,11 +12,11 @@ class Empleados extends Model {
 
 	//INGRESAR
 	public function entrar($mail, $contrasena){
-		if(strlen($mail)<2) die("Debe ingresar mail");
+		if(strlen($mail)<2) throw new ValidacionException("Debe ingresar Mail");
 		$mail=substr($mail, 0, 50);
 		$mail=$this->db->escapeString($mail);
 		
-		if(strlen($contrasena)<2) die("Debe ingresar contraseña");
+		if(strlen($contrasena)<2) throw new ValidacionException("Debe ingresar Contraseña");
 		$contrasena=substr($contrasena, 0, 50);
 		$contrasena=$this->db->escapeString($contrasena);
 		
@@ -27,7 +26,7 @@ class Empleados extends Model {
 		$this->db->query("SELECT * 
 						FROM empleados
 						WHERE mail='$mail' AND contrasena='$contrasena'");
-		if($this->db->numRows()!=1) die("Contraseña incorrecta");
+		if($this->db->numRows()!=1) throw new ValidacionException("Contraseña Incorrecta");
 		return $this->db->fetch();
 	}
 }

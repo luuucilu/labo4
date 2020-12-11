@@ -8,7 +8,6 @@ require '../models/Detalle.php';
 if(isset($_POST['cantidad'])){
 	if(!isset($_POST['id_articulo'])) die("error1");
 
-
 		(new Detalle)->alta($_POST['id_pedido'],$_POST['id_articulo'],$_POST['cantidad']);
 		header("Location: ConFin");
 		exit;

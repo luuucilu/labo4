@@ -1,4 +1,5 @@
 <?php
+class ValidacionException extends Exception{}
 
 abstract class Model {	
 	protected $db;

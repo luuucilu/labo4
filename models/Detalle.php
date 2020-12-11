@@ -10,15 +10,15 @@ class Detalle extends Model {
 
 	//POST
 	public function alta($id_pedido,$id_articulo,$cantidad){
-		if(!ctype_digit($id_pedido)) die("el pedido no es un digito");
-		if(!ctype_digit($id_articulo)) die("el articulo no es un digito");
-		if(!is_numeric($cantidad)) die("la cantidad no es un numero");
+		if(!ctype_digit($id_pedido)) throw new ValidacionException("El pedido no es un digito");
+		if(!ctype_digit($id_articulo)) throw new ValidacionException("El articulo no es un digito");
+		if(!ctype_digit($cantidad)) throw new ValidacionException("La cantidad no es un digito");
 		
 
 		$this->db->query("INSERT into detalle_pedidos
 						(id_pedido,id_articulo,cantidad)
 						values 
-						('$id_pedido','$id_articulo','$cantidad')");
+						($id_pedido,$id_articulo,$cantidad)");
 	}
 	
 
@@ -76,13 +76,13 @@ class Detalle extends Model {
 
 	//PUT
 	public function modificar($id_pedido,$id_articulo,$cantidad){
-		if(!ctype_digit($id_pedido)) die("pedido no es un digito");
-		if(!ctype_digit($id_articulo)) die("articulo no es un digito");
-		if(!is_numeric($cantidad)) die("cantidad no es un numero");
+		if(!ctype_digit($id_pedido)) throw new ValidacionException("Pedido no es un digito");
+		if(!ctype_digit($id_articulo)) throw new ValidacionException("Articulo no es un digito");
+		if(!ctype_digit($cantidad)) throw new ValidacionException("La cantidad no es un digito");
 		
 
 		$this->db->query("UPDATE `detalle_pedidos` 
-						  SET `cantidad` = '$cantidad' 
+						  SET `cantidad` = $cantidad
 						  WHERE `detalle_pedidos`.`id_pedido` = $id_pedido AND `detalle_pedidos`.`id_articulo` = $id_articulo;");
 	}	
 	

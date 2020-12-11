@@ -1,5 +1,4 @@
 <?php
-
 class Categorias extends Model {
 
 	public function getTodos(){
